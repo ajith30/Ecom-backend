@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Enable CORS for all routes
-app.use("cors");
+app.use(cros());
 
 //Mount the router
 app.use("/api/products", productRoutes);
