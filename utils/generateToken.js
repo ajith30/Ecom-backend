@@ -10,6 +10,7 @@ console.log(process.env.NODE_ENV);
 
   //Set JWT as an HTTP-Only cookie (storing the token in cookie insted of localStorage)
   res.cookie("jwt", token, {
+    path: "/",
     httpOnly: true,
     secure: process.env.NODE_ENV === "production", //secure cookie in production environment
     sameSite: process.env.NODE_ENV === "production" ? "none" : "strict", // Allow the cookie to be sent with cross-site requests only in production
