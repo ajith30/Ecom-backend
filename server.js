@@ -8,6 +8,7 @@ import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import cookieParser from "cookie-parser";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
+import cros from "cors";
 
 const port = process.env.PORT || 5000;
 
@@ -22,6 +23,9 @@ app.use(express.urlencoded({ extended: true }));
 
 //Cookie parser middleware
 app.use(cookieParser());
+
+// Enable CORS for all routes
+app.use("cors");
 
 //Mount the router
 app.use("/api/products", productRoutes);
