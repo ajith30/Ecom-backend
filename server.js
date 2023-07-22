@@ -25,7 +25,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Enable CORS for all routes
-app.use(cors());
+//app.use(cors());
+
+app.use(cors({
+  origin: ["http://localhost:3000",
+    "https://guileless-pudding-8fcb33.netlify.app"
+  ],
+  credentials: true
+}));
 
 //Mount the router
 app.use("/api/products", productRoutes);
